@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1059356204743",
+    "project_id": "the-todo-c6eac",
+    "storage_bucket": "the-todo-c6eac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1059356204743:android:ddbf60c57722193ed6a8e2",
+        "android_client_info": {
+          "package_name": "com.sisada.thetodo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1059356204743-bcglit0fpr4k5ea1b207iji6i3gah65m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sisada.thetodo",
+            "certificate_hash": "92fe864dfa9ed42da861e5554638793ead56bf5a"
+          }
+        },
+        {
+          "client_id": "1059356204743-mfg0rs6q4ah2lb2a8gpgrrgf4fjrdhag.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAWALKqNMKdAE505KNLTZ2MvtQpkSri9c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1059356204743-mfg0rs6q4ah2lb2a8gpgrrgf4fjrdhag.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
