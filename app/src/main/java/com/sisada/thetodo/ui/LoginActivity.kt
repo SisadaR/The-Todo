@@ -4,11 +4,14 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.sisada.thetodo.MainActivity
 import com.sisada.thetodo.R
+import com.sisada.thetodo.constants.IntentKey
 import com.sisada.thetodo.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
@@ -20,6 +23,8 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        binding.layoutLoading.visibility = View.INVISIBLE
+
         binding.btnSignup.setOnClickListener {
             var intent = Intent(this,SignupActivity::class.java)
             startActivity(intent)
@@ -28,7 +33,6 @@ class LoginActivity : AppCompatActivity() {
 
         binding.btnLogin.setOnClickListener {
             //validate first
-
             binding.layoutContent.visibility = View.INVISIBLE
             binding.layoutLoading.visibility = View.VISIBLE
 
@@ -37,17 +41,31 @@ class LoginActivity : AppCompatActivity() {
             Firebase.auth.signInWithEmailAndPassword(email,password)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-
+                        goToMainActivity()
                     } else{
-
+                        binding.layoutContent.visibility = View.VISIBLE
+                        binding.layoutLoading.visibility = View.INVISIBLE
+                        Snackbar.make(binding.root,task.exception.toString(),5000).show()
                     }
                 }
         }
+
+        Firebase.auth.currentUser?.let {
+            goToMainActivity()
+        }
+    }
+
+    private fun goToMainActivity(){
+        val firebaseUser = Firebase.auth.currentUser
+        val intent = Intent(this, MainActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        intent.putExtra(IntentKey.USER_ID, firebaseUser!!.uid)
+        startActivity(intent)
+        finish()
     }
 
     override fun onStart() {
         super.onStart()
-        val currentUser = mAuth.currentUser
 
     }
 }

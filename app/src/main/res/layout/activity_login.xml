@@ -41,6 +41,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="test00@email.com"
                 android:hint="hint" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -58,7 +59,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="hint" />
+                android:hint="hint"
+                android:text="123456"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button

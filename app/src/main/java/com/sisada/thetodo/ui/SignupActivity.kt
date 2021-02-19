@@ -1,6 +1,5 @@
 package com.sisada.thetodo.ui
 
-import android.app.ProgressDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -58,7 +57,7 @@ class SignupActivity : AppCompatActivity() {
                         }else{
                             binding.layoutContent.visibility = View.VISIBLE
                             binding.layoutLoading.visibility = View.INVISIBLE
-                            Snackbar.make(binding.root,"Register failed",2)
+                            Snackbar.make(binding.root,"Register failed",5000).show()
                         }
 
                     }
